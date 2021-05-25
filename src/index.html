@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Autoilumittari</title>
+</head>
+<body>
+    
+    <main id="container">
+        
+        <h1>Autoilumittari</h1>
+        <p>Vertaa ajonopeuden vaikutusta matka-aikaan ja polttoaineen kulutukseen.</p>
+
+        <h3 id="vehicle-type-title">Ajoneuvotyyppi</h3>
+        <div id="vehicle-type-controls" class="mb">
+            <button value="A">
+                <span>A</span>
+                <span>3.0L</span>
+            </button>
+            <button value="B">
+                <span>B</span>
+                <span>3.5L</span>
+            </button>
+            <button value="C">
+                <span>C</span>
+                <span>4.0L</span>
+            </button>
+        </div>
+
+        <div class="labeled mt">
+            <input type="number" id="distance" class="control" placeholder="Matka">
+            <span>km</span>
+        </div>
+
+        <div id="velocity-controls" class="mt">
+            <div class="labeled mr">
+                <input type="number" class="control" id="velocity-1" placeholder="Nopeus 1">
+                <span>km/h</span>
+            </div>
+            <div class="labeled ml">
+                <input type="number" class="control" id="velocity-2" placeholder="Nopeus 2">
+                <span>km/h</span>
+            </div>
+        </div>
+
+        <div id="results" class="my">
+            <div id="velocity-1-results" class="mr">
+                <span class="triangle-down mb"></span>
+                <div class="result-item">
+                    <span class="result">03:04:14</span>
+                </div>
+                <div class="result-item">
+                    <span class="result">45.0L</span>
+                </div>
+                <div class="result-item">
+                    <span class="result">5.0L/100km</span>
+                </div>
+            </div>
+            <div id="velocity-2-results" class="ml">
+                <span class="triangle-down mb"></span>
+                <div class="result-item">
+                    <span class="result">03:04:14</span>
+                </div>
+                <div class="result-item">
+                    <span class="result">45.0L</span>
+                </div>
+                <div class="result-item">
+                    <span class="result">5.0L/100km</span>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+</body>
+</html>

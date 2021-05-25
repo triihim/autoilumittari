@@ -1,0 +1,164 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+body {
+    background-color: #fff;
+    color: #30343F;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.my { margin: 15px 0; }
+.mx { margin: 0 15px; }
+.mt { margin-top: 15px; }
+.mb { margin-bottom: 15px; }
+.mr { margin-right: 15px; }
+.ml { margin-left: 15px; }
+
+.control,
+main,
+p {
+    font-family: "Quicksand", sans-serif;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-size: 2.6rem;
+    padding-bottom: 10px;
+    border-bottom: 8px solid #FF7075;
+}
+
+button span {
+    pointer-events: none;
+}
+
+#vehicle-type-title {
+    margin: 0;
+    text-align: left;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#vehicle-type-controls,
+#velocity-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#vehicle-type-controls > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    width: 30%;
+    padding: 5px;
+    border: 4px solid #30343F;
+}
+
+#vehicle-type-controls > button span:first-child {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#vehicle-type-controls > button span:last-child {
+    font-weight: bold;
+}
+
+#vehicle-type-controls > button:hover {
+    background-color: #FF7075;
+    cursor: pointer;
+}
+
+#vehicle-type-controls > button.active {
+    background-color: #FF7075;
+}
+
+#velocity-controls {
+    justify-content: center;
+}
+
+#velocity-controls input {
+    width: 100%;
+}
+
+#velocity-controls input:first-child {
+    margin-right: 15px;
+}
+
+#velocity-controls input:last-child {
+    margin-left: 15px;
+}
+
+.control,
+.control::placeholder,
+#vehicle-type-title {
+    color: #30343F;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.control {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2.0rem;
+    padding: 8px 0;
+    border-bottom: 4px solid #30343F;
+}
+
+.labeled {
+    display: flex;
+    flex-direction: column;
+}
+.labeled :last-child {
+    padding: 5px;
+}
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #FF7075;
+    align-self: center;
+}
+
+#results {
+    display: flex;
+    flex-direction: row;
+}
+
+#results > * {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-item {
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,5 +1,5 @@
 import { FuelConsumption100CalculationArgs, VehicleType, FuelConsumption100, VelocityKMH, DistanceKM, FuelConstumptionTotalCalculationArgs, FuelConsumptionTotal } from "./types";
-import { handleError, assertNever, isValidVehicleType, isVelocityWithinRange, roundToPrecision, isValidDistance } from "./common";
+import { handleError, assertNever, isValidVehicleType, isVelocityWithinRange, roundToPrecision, isValidDistance } from "./helpers";
 import { FUEL_CONSUMPTION_MULTIPLIER } from "./constants";
 
 const validateForConsumptionAtVelocity = ({ vehicleType, velocity }: FuelConsumption100CalculationArgs): Promise<FuelConsumption100CalculationArgs> => {

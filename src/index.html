@@ -13,7 +13,7 @@
     
     <main id="container">
         
-        <h1>Autoilumittari</h1>
+        <h1 class="my">Autoilumittari</h1>
         <p>Vertaa ajonopeuden vaikutusta matka-aikaan ja polttoaineen kulutukseen.</p>
 
         <h3 id="vehicle-type-title">Ajoneuvotyyppi</h3>
@@ -37,7 +37,7 @@
             <span>km</span>
         </div>
 
-        <div id="velocity-controls" class="mt">
+        <div id="velocity-controls" class="my">
             <div class="labeled mr">
                 <input type="number" class="control" id="velocity-1" placeholder="Nopeus 1">
                 <span>km/h</span>
@@ -49,30 +49,46 @@
         </div>
 
         <div id="results" class="my">
-            <div id="velocity-1-results" class="mr">
-                <span class="triangle-down mb"></span>
-                <div class="result-item">
-                    <span class="result">03:04:14</span>
-                </div>
-                <div class="result-item">
-                    <span class="result">45.0L</span>
-                </div>
-                <div class="result-item">
-                    <span class="result">5.0L/100km</span>
-                </div>
-            </div>
-            <div id="velocity-2-results" class="ml">
-                <span class="triangle-down mb"></span>
-                <div class="result-item">
-                    <span class="result">03:04:14</span>
-                </div>
-                <div class="result-item">
-                    <span class="result">45.0L</span>
-                </div>
-                <div class="result-item">
-                    <span class="result">5.0L/100km</span>
-                </div>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <span id="result-velocity-1">-</span>
+                            <span>km/h</span>
+                        </th>
+                        <th>
+                            <span id="result-velocity-2">-</span>
+                            <span>km/h</span>
+                        </th>
+                        <th>Ero</th>
+                        <th>Ero-%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Matka-aika</th>
+                        <td id="result-duration-1">-</td>
+                        <td id="result-duration-2">-</td>
+                        <td id="result-duration-diff">-</td>
+                        <td id="result-duration-diff-percentage">-</td>
+                    </tr>
+                    <tr>
+                        <th>L/100km</th>
+                        <td id="result-consumption-1">-</td>
+                        <td id="result-consumption-2">-</td>
+                        <td id="result-consumption-diff">-</td>
+                        <td id="result-consumption-diff-percentage">-</td>
+                    </tr>
+                    <tr>
+                        <th>L/matka</th>
+                        <td id="result-tot-consumption-1">-</td>
+                        <td id="result-tot-consumption-2">-</td>
+                        <td id="result-tot-consumption-diff">-</td>
+                        <td id="result-tot-consumption-diff-percentage">-</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
 

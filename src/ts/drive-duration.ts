@@ -1,4 +1,4 @@
-import { convertSecondsToHMS, handleError, isValidDistance } from "./common";
+import { convertSecondsToHMS, handleError, isValidDistance } from "./helpers";
 import { VelocityKMH, DistanceKM, Seconds, DurationHMS, DriveDurationCalculationArgs } from "./types";
 
 const validate = ({velocity, distance}: DriveDurationCalculationArgs): Promise<DriveDurationCalculationArgs> => {

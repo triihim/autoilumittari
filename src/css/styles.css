@@ -4,7 +4,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
@@ -12,6 +11,7 @@ input[type=number] {
 body {
     background-color: #fff;
     color: #30343F;
+    padding-bottom: 40px;
 }
 
 main {
@@ -23,12 +23,12 @@ main {
     text-align: center;
 }
 
-.my { margin: 15px 0; }
-.mx { margin: 0 15px; }
-.mt { margin-top: 15px; }
-.mb { margin-bottom: 15px; }
-.mr { margin-right: 15px; }
-.ml { margin-left: 15px; }
+.my { margin: 10px 0; }
+.mx { margin: 0 10px; }
+.mt { margin-top: 10px; }
+.mb { margin-bottom: 10px; }
+.mr { margin-right: 10px; }
+.ml { margin-left: 10px; }
 
 .control,
 main,
@@ -37,12 +37,12 @@ p {
 }
 
 p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 h1 {
-    font-size: 2.6rem;
-    padding-bottom: 10px;
+    font-size: 2.5rem;
+    padding-bottom: 5px;
     border-bottom: 8px solid #FF7075;
 }
 
@@ -76,7 +76,7 @@ button span {
 }
 
 #vehicle-type-controls > button span:first-child {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
@@ -84,13 +84,15 @@ button span {
     font-weight: bold;
 }
 
-#vehicle-type-controls > button:hover {
+#vehicle-type-controls > button:hover,
+#vehicle-type-controls > button:focus {
     background-color: #FF7075;
     cursor: pointer;
-}
+} 
 
 #vehicle-type-controls > button.active {
     background-color: #FF7075;
+    color: white;
 }
 
 #velocity-controls {
@@ -99,14 +101,6 @@ button span {
 
 #velocity-controls input {
     width: 100%;
-}
-
-#velocity-controls input:first-child {
-    margin-right: 15px;
-}
-
-#velocity-controls input:last-child {
-    margin-left: 15px;
 }
 
 .control,
@@ -122,8 +116,9 @@ button span {
     border: none;
     outline: none;
     background: none;
-    font-size: 2.0rem;
-    padding: 8px 0;
+    font-size: 2.2rem;
+    padding: 4px 0;
+    color: #30343F;
     border-bottom: 4px solid #30343F;
 }
 
@@ -135,30 +130,36 @@ button span {
     padding: 5px;
 }
 
-.triangle-down {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 20px solid #FF7075;
-    align-self: center;
-}
-
 #results {
-    display: flex;
-    flex-direction: row;
+    overflow-x: scroll;
 }
 
-#results > * {
+#results table {
+    text-align: center;
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    border: 2px solid #30343F;
+    border-spacing: 0;
 }
 
-.result-item {
+#results table tr th {
+    background-color: #FF7075;
+    color: #fff;
+}
+
+#results table tr td,
+#results table tr th {
     font-weight: bold;
-    font-size: 1.8rem;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
+    padding: 10px;
+    border: 2px solid #30343F;
+}
+
+@media screen and (max-width: 500px) {
+    #results table {
+        font-size: .7rem;
+    }
+
+    #results table tr td,
+    #results table tr th {
+        padding: 5px 0px;
+    }
 }

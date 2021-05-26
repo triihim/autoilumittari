@@ -31,6 +31,8 @@ export type Minutes = number;
 
 export type Hours = number;
 
+export type Percentage = number;
+
 export interface DurationHMS {
     hours: Hours,
     minutes: Minutes,
@@ -50,5 +52,11 @@ export interface ComparisonResults {
     consumption1: FuelConsumption100,
     consumption2: FuelConsumption100,
     totalConsumption1: FuelConsumptionTotal,
-    totalConsumption2: FuelConsumptionTotal
+    totalConsumption2: FuelConsumptionTotal,
+    durationDifference: DurationHMS,
+    durationDifferencePercentage: Percentage
+    consumptionDifference: FuelConsumption100,
+    consumptionDifferencePercentage: Percentage,
+    totalConsumptionDifference: FuelConsumptionTotal,
+    totalConsumptionDifferencePercentage: Percentage
 }

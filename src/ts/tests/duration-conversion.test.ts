@@ -1,4 +1,4 @@
-import { convertSecondsToHMS } from "../common";
+import { convertSecondsToHMS } from "../helpers";
 
 describe("Seconds to hms conversion tests", () => {
 

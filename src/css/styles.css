@@ -122,6 +122,10 @@ button span {
     border-bottom: 4px solid #30343F;
 }
 
+.control.invalid {
+    color: #ccc;
+}
+
 .labeled {
     display: flex;
     flex-direction: column;

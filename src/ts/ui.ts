@@ -31,28 +31,40 @@ const initialise = () => {
         velocity2: undefined
     }
 
-    const isValidDigitInput = (code: string): boolean => /Digit[\d]|Numpad[\d]|Backspace|Delete|Tab/.test(code);
-
     const clampNumberInput = (input: HTMLInputElement, min: number, max: number, value: number): void => {
         if(value < min) input.value = min.toString();
         if(value > max) input.value = max.toString();
     }
 
-    const constraintNumberInput = (e: KeyboardEvent): void => {
-        if(false === isValidDigitInput(e.code)) e.preventDefault();
-    }
-
     const validSelections = (): boolean => {
         return !isNaN(selections.distance) &&
-            !isNaN(selections.velocity1) &&
-            !isNaN(selections.velocity2) &&
-            isValidVehicleType(selections.vehicleType) &&
-            isValidDistance(selections.distance) &&
-            isVelocityWithinRange(selections.velocity1) &&
-            isVelocityWithinRange(selections.velocity2);
+               !isNaN(selections.velocity1) &&
+               !isNaN(selections.velocity2) &&
+                isValidVehicleType(selections.vehicleType) &&
+                isValidDistance(selections.distance) &&
+                isVelocityWithinRange(selections.velocity1) &&
+                isVelocityWithinRange(selections.velocity2);
+    }
+
+    const clearInputErrors = (): void => {
+        distanceInput.classList.remove("invalid");
+        velocityInput1.classList.remove("invalid");
+        velocityInput2.classList.remove("invalid")
+    }
+
+    const showInputErrors = (): void => {
+        if(isNaN(selections.distance) || !isValidDistance(selections.distance))
+            distanceInput.classList.add("invalid");
+
+        if(isNaN(selections.velocity1) || !isVelocityWithinRange(selections.velocity1))
+            velocityInput1.classList.add("invalid");
+
+        if(isNaN(selections.velocity2) || !isVelocityWithinRange(selections.velocity2))
+            velocityInput2.classList.add("invalid");
     }
 
     const updateResults = async (): Promise<void> => {
+        clearInputErrors();
         if(validSelections()) {
             const report = await comparisonReport(selections);
             resultVelocity1.innerHTML = selections.velocity1.toString();
@@ -69,6 +81,8 @@ const initialise = () => {
             resultTotalConsumption2.innerHTML = report.totalConsumption2.toString();
             resultTotalConsumptionDiff.innerHTML = report.totalConsumptionDifference.toString();
             resultTotalConsumptionDiffPercentage.innerHTML = report.totalConsumptionDifferencePercentage.toString();
+        } else {
+            showInputErrors();
         }
     }
 
@@ -79,7 +93,7 @@ const initialise = () => {
     }
 
     vehicleTypeButtons.forEach(b => {
-        b.addEventListener("click", (e: Event): void => {
+        b.addEventListener("click", (e: KeyboardEvent): void => {
             const clickedButton = (e.target as HTMLButtonElement);
             const type = clickedButton.value as keyof typeof VehicleType;
             selections.vehicleType = VehicleType[type];
@@ -88,11 +102,7 @@ const initialise = () => {
         });
     });
 
-    distanceInput.addEventListener("keypress", constraintNumberInput);
-    velocityInput1.addEventListener("keypress", constraintNumberInput);
-    velocityInput2.addEventListener("keypress", constraintNumberInput);
-
-    distanceInput.addEventListener("keyup", (e: KeyboardEvent) => {
+    distanceInput.addEventListener("input", (e: KeyboardEvent) => {
         const input = e.target as HTMLInputElement;
         const newDistance = parseInt(input.value);
         clampNumberInput(input, DISTANCE_KM_MIN, DISTANCE_KM_MAX, newDistance);
@@ -100,7 +110,7 @@ const initialise = () => {
         updateResults();
     });
 
-    velocityInput1.addEventListener("keyup", (e: Event) => {
+    velocityInput1.addEventListener("input", (e: KeyboardEvent) => {
         const input = e.target as HTMLInputElement;
         const newVelocity = parseInt(input.value);
         clampNumberInput(input, VELOCITY_KMH_MIN, VELOCITY_KMH_MAX, newVelocity);
@@ -108,7 +118,7 @@ const initialise = () => {
         updateResults();
     });
 
-    velocityInput2.addEventListener("keyup", (e: Event) => {
+    velocityInput2.addEventListener("input", (e: KeyboardEvent) => {
         const input = e.target as HTMLInputElement;
         const newVelocity = parseInt(input.value);
         clampNumberInput(input, VELOCITY_KMH_MIN, VELOCITY_KMH_MAX, newVelocity);

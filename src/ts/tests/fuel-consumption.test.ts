@@ -3,10 +3,6 @@ import { VehicleType } from "../types";
 
 describe("Fuel consumption calculation tests", () => {
 
-    test("Velocity of 0 kmh results in 0 consumption", () => {
-        return expect(fuelConsumptionAtVelocity(VehicleType.A, 0)).resolves.toBe(0);
-    });
-    
     test("Velocity of 1 kmh results in base consumption for vehicle type A", () => {
         return expect(fuelConsumptionAtVelocity(VehicleType.A, 1)).resolves.toBe(3.0);
     });

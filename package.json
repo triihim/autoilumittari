@@ -6,8 +6,7 @@
   "scripts": {
     "build": "webpack build",
     "test": "jest",
-    "start": "lite-server --baseDir=dist",
-    "start:build": "npm run build && npm start",
+    "start": "npm run build && lite-server --baseDir=dist",
     "dev": "webpack serve"
   },
   "author": "Tatu Riihimäki",
